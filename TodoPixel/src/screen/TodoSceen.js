@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View, } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { Icon, IconButton } from 'react-native-paper';
 
 const dummyData = [
@@ -13,8 +13,27 @@ const dummyData = [
   },
 ];
 
+console.log(Date.now().toString());
+
 const TodoSceen = () => {
 
+    //init local states
+    const[todo, setTodo] = useState("");
+    const[todoList, setTodoList] = useState([])
+    //Handle add todo
+    
+    const handleAddTodo = ()=>{
+
+      // sturtcure of a single todo item
+      //{
+      //  id:
+      //  title:
+      //} 
+      
+      setTodoList([...todoList, {id: Date.now().toString(), title: todo}]);
+    }
+
+    //render todo
     const renderTodos = ({ item, index }) => {
         return (
           <View style={{backgroundColor:"#1e90ff" , borderRadius: 6, paddingHorizontal:6, paddingVertical:12, marginBottom: 12, 
@@ -46,17 +65,22 @@ const TodoSceen = () => {
       }}
 
       placeholder='Adicione uma Tarefa'
+      value={todo}
+      onChangeText={(userText)=> setTodo(userText)}
       
       />
 
-      <TouchableOpacity style={{backgroundColor:"#000", borderRadius: 6, paddingVertical: 10, marginVertical: 34, alignItems: "center",}}>
+      <TouchableOpacity style={{backgroundColor:"#000", borderRadius: 6, paddingVertical: 10, marginVertical: 34, alignItems: "center",}}
+      onPress={()=> handleAddTodo()}
+      >
+        
         <Text style={{color: "#fff" , fontWeight: "bold", fontSize: 20}}>Adicione</Text>
       </TouchableOpacity>
 
     {/*Render todo list*/}
 
     <FlatList
-  data={dummyData}
+  data={todoList}
   renderItem={renderTodos}
   keyExtractor={(item) => item.id}
 />
