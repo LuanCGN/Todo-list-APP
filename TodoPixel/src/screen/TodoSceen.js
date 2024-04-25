@@ -73,7 +73,7 @@ const TodoSceen = () => {
     const renderTodos = ({ item, index }) => {
         return (
           <View style={{
-            backgroundColor:"#1e90ff" , 
+            backgroundColor:"#40e0d0" , 
             borderRadius: 6, 
             paddingHorizontal:6, 
             paddingVertical:12, 
@@ -88,7 +88,7 @@ const TodoSceen = () => {
 
             
 
-            <Text style={{color: "#fff", fontSize: 20, fontWeight: "800", flex: 1 }}>{item.title}</Text>
+            <Text style={{color: "#000000", fontSize: 20, fontWeight: "800", flex: 1 }}>{item.title}</Text>
 
             <IconButton icon="pencil" iconColor='#fff' onPress={()=>handleEditTodo(item)}/>
             <IconButton icon="trash-can" iconColor='#fff' onPress={()=>handleDeleteTodo(item.id)}/>
@@ -98,15 +98,43 @@ const TodoSceen = () => {
       };
       
   return (
-    <View style={{ marginHorizontal: 16, paddingTop: 40, }}>
     
 
+
+    <View style={{ marginHorizontal: 16, paddingTop: 40, }}>
+
+      {/*Logo*/}
+
+    <View style ={{
+      flexDirection: 'row',
+      marginBottom: 20,
+      justifyContent: 'center',
+      alignItems: 'center',
+      }}>
+
+      <Text style={{
+        fontSize: 30,
+        fontWeight: 'bold',
+        }}>Todo
+        </Text>
+
+        <Text style={{
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: '#40e0d0',
+        }}>Pixel
+        </Text>
+
+      </View>
+    
+       {/*Barra de adicionar e modificar Tarefas*/}
       <TextInput 
       style={{
-      borderWidth:2, 
-      borderColor: "#1e90ff", 
-      borderRadius: 6, 
-      paddingVertical: 12,
+      
+      borderWidth:3, 
+      borderColor: "#40e0d0", 
+      borderRadius: 10, 
+      paddingVertical: 8,
       paddingHorizontal: 16,
       
       }}
