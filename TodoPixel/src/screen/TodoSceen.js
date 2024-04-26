@@ -1,25 +1,25 @@
 import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View, } from 'react-native'
 import React, { useState } from 'react'
 import { Icon, IconButton } from 'react-native-paper';
+import Fallback from '../components/Fallback';
 
 
 console.log(Date.now().toString());
 
 const TodoSceen = () => {
 
-    //init local states
+    //iniciar estados locais
+
     const[todo, setTodo] = useState("");
     const[todoList, setTodoList] = useState([]);
     const[editedTodo, setEditedTodo] = useState(null);
-    //Handle add todo
+
+    //adicionar tarefas
     
     const handleAddTodo = ()=>{
 
-      // sturtcure of a single todo item
-      //{
-      //  id:
-      //  title:
-      //} 
+    //estrutura de um unico item de tarefa
+      
       if(todo === ""){
         return;
       }
@@ -27,7 +27,8 @@ const TodoSceen = () => {
       setTodoList([...todoList, {id: Date.now().toString(), title: todo}]);
       setTodo("");
     };
-    // Hendle Delete
+    // exclusão
+
     const handleDeleteTodo = (id)=>{
 
       const updatedTodoList = todoList.filter((todo)=> todo.id !== id)
@@ -36,7 +37,7 @@ const TodoSceen = () => {
       
     };
 
-    //Handle Edit todo
+    //Editar Tarefas
 
     const handleEditTodo = (todo)=>{
 
@@ -46,7 +47,7 @@ const TodoSceen = () => {
           
     };
 
-    // Handle Update
+    // Atualizar tarefas
 
     const handleUpdateTodo = ()=>{
 
@@ -69,7 +70,8 @@ const TodoSceen = () => {
 
 
 
-    //render todo
+    //renderizar tarefas
+
     const renderTodos = ({ item, index }) => {
         return (
           <View style={{
@@ -88,7 +90,7 @@ const TodoSceen = () => {
 
             
 
-            <Text style={{color: "#000000", fontSize: 20, fontWeight: "800", flex: 1 }}>{item.title}</Text>
+            <Text style={{color: "#000000", fontSize: 20, fontWeight: "400", flex: 1 }}>{item.title}</Text>
 
             <IconButton icon="pencil" iconColor='#fff' onPress={()=>handleEditTodo(item)}/>
             <IconButton icon="trash-can" iconColor='#fff' onPress={()=>handleDeleteTodo(item.id)}/>
@@ -101,7 +103,7 @@ const TodoSceen = () => {
     
 
 
-    <View style={{ marginHorizontal: 16, paddingTop: 40, }}>
+    <View style={{ marginHorizontal: 16, paddingTop: 40,  }}>
 
       {/*Logo*/}
 
@@ -128,6 +130,7 @@ const TodoSceen = () => {
       </View>
     
        {/*Barra de adicionar e modificar Tarefas*/}
+
       <TextInput 
       style={{
       
@@ -175,14 +178,16 @@ const TodoSceen = () => {
       }
       
 
-    {/*Render todo list*/}
+    {/*Renderizar lista de tarefas*/}
 
     <FlatList
   data={todoList}
   renderItem={renderTodos}
   keyExtractor={(item) => item.id}
 />
-
+     {
+      todoList.length <=0 && <Fallback/>
+     }
     
     </View>
   )
