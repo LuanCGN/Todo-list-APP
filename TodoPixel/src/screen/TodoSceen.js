@@ -78,7 +78,7 @@ const TodoSceen = () => {
             backgroundColor:"#40e0d0" , 
             borderRadius: 6, 
             paddingHorizontal:6, 
-            paddingVertical:12, 
+            paddingVertical:5, 
             marginBottom: 12, 
             flexDirection: "row", 
             alignItems:"center",
@@ -103,7 +103,7 @@ const TodoSceen = () => {
     
 
 
-    <View style={{ marginHorizontal: 16, paddingTop: 40,  }}>
+    <View style={{marginHorizontal: 16, paddingTop: 40,  }}>
 
       {/*Logo*/}
 
@@ -179,12 +179,17 @@ const TodoSceen = () => {
       
 
     {/*Renderizar lista de tarefas*/}
-
+    
     <FlatList
-  data={todoList}
-  renderItem={renderTodos}
-  keyExtractor={(item) => item.id}
+
+    
+     data={todoList}
+     renderItem={renderTodos}
+     keyExtractor={(item) => item.id}
+     
+     
 />
+
      {
       todoList.length <=0 && <Fallback/>
      }
