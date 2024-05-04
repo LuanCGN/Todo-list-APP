@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View , SafeAreaView } from 'react-native';
+import { StyleSheet, View , SafeAreaView } from 'react-native';
 import TodoSceen from './src/screen/TodoSceen';
 
 export default function App() {
