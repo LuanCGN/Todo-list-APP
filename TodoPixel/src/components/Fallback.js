@@ -6,13 +6,18 @@ const Fallback = () => {
     
 
     
-    <View>
+    <View style={{
+      justifyContent: 'center',
+      alignItems: 'center',
+
+      }}>
 
         <Image source={require("../../assets/todo.png")} 
         style={{
             height: 300, 
             width: 300,
-            marginHorizontal: 45,
+            justifyContent: 'center',
+            alignItems: 'center',
             top: '5%',
 
             }}/>
@@ -21,15 +26,14 @@ const Fallback = () => {
 
       <Text style = {{
         color: "#fff" ,
-        fontSize: 20,
-        textAlign: 'center',
+        fontSize: 23,
         top: '20%', 
         fontWeight: '200',
         backgroundColor:"#000", 
         borderRadius: 70,
         marginHorizontal: 70,
 
-      }}>comece a adicionar sua tarefa</Text>
+      }}>---adicione suas tarefas---</Text>
     </View>
   )
 }
