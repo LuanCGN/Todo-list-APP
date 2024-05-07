@@ -14,8 +14,8 @@ const Fallback = () => {
 
         <Image source={require("../../assets/todo.png")} 
         style={{
-            height: 300, 
-            width: 300,
+            height: 290, 
+            width: 290,
             justifyContent: 'center',
             alignItems: 'center',
             top: '5%',
@@ -26,7 +26,7 @@ const Fallback = () => {
 
       <Text style = {{
         color: "#fff" ,
-        fontSize: 23,
+        fontSize: 16,
         top: '20%', 
         fontWeight: '200',
         backgroundColor:"#000", 
