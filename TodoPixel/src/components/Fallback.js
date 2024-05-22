@@ -23,10 +23,10 @@ const styles = StyleSheet.create({
     width: 290,
   },
   text: {
-    color: "#fff",
+    color: "#000",
     fontSize: 16,
     fontWeight: '150',
-    backgroundColor: "#000",
+    backgroundColor: "#40e0d0",
     borderRadius: 70,
     marginTop: 50,
     paddingHorizontal: 10,
